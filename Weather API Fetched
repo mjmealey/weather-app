@@ -1,0 +1,18 @@
+const weatherApp = async () => {
+  try {
+    const weatherData = await fetch(
+      "http://api.weatherapi.com/v1/current.json?key=26488b9bdc6d4fcfafc23247231505&q=Knoxville&aqi=no",
+      { mode: "cors" }
+    );
+    const weatherAPI = await weatherData.json();
+    console.log(weatherAPI);
+
+    if (!weatherData.ok) {
+      throw new Error("You are incorrect");
+    } else {
+      console.log("You are good!");
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
