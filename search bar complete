@@ -1,0 +1,149 @@
+  <body>
+    <div id="displayLocation"></div>
+
+    <form id="viewLocationWeatherForm">
+      <label
+        for="weatherLocation"
+        id="weatherLocationLabel"
+        class="weatherSearch"
+      >
+        Enter a Location
+      </label>
+      <input id="weatherLocation" class="weatherSearch" />
+      <div class="weatherSearch" id="displayInputError"></div>
+      <button
+        type="submit"
+        id="viewLocationWeatherButton"
+        class="weatherSearch"
+      >
+        View Weather
+      </button>
+    </form>
+
+let city = "London";
+
+const weatherApp = async () => {
+  try {
+    const weatherData = await fetch(
+      `http://api.weatherapi.com/v1/current.json?key=26488b9bdc6d4fcfafc23247231505&q=${encodeURIComponent(
+        city
+      )}&aqi=no`,
+      { mode: "cors" }
+    );
+    const weatherAPI = await weatherData.json();
+    console.log(weatherAPI);
+
+    if (!weatherData.ok) {
+      throw new Error("Please check the API Code");
+    } else {
+      console.log("Everything looks good");
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const weatherConditions = async () => {
+  try {
+    const weatherData = await fetch(
+      `http://api.weatherapi.com/v1/current.json?key=26488b9bdc6d4fcfafc23247231505&q=${encodeURIComponent(
+        city
+      )}&aqi=no`,
+      { mode: "cors" }
+    );
+    const weatherAPI = await weatherData.json();
+    console.log(weatherAPI);
+    const displayCurrentConditions = [
+      "displayWeatherCondition",
+      "displayTemperatureCelcius",
+      "displayTemperatureFahrenheit",
+      "displayGustKph",
+      "displayHumidity",
+      "displayPrecipitationInches",
+      "displayPrecipitationMillimeters",
+      "displayUV",
+      "displayVisibilityKilometers",
+      "displayVisibilityMiles",
+      "displayWindDegrees",
+      "displayWindKph",
+      "displayWindMph",
+      "displayPressureInches",
+      "displayPressureMillibars",
+      "displayFeelsLikeCelcius",
+      "displayFeelsLikeFahrenheit",
+      "displayTimeOfDay",
+      "displayWindDirection",
+    ];
+
+    const displayCurrentConditionsIds = displayCurrentConditions.map((id) =>
+      document.getElementById(id)
+    );
+
+    if (
+      weatherAPI.current.condition.text === "Partly cloudy" ||
+      "Sunny" ||
+      "Cloudy" ||
+      "Mostly cloudy" ||
+      "Rain" ||
+      "Mist" ||
+      "Overcast"
+    ) {
+      console.log("Hi");
+      displayCurrentConditionsIds[0].innerHTML =
+        weatherAPI.current.condition.text;
+      displayCurrentConditionsIds[1].innerHTML =
+        weatherAPI.current.temp_c + " °C";
+      displayCurrentConditionsIds[2].innerHTML =
+        weatherAPI.current.temp_f + " °F";
+      displayCurrentConditionsIds[3].innerHTML =
+        "Wind Gust: " + weatherAPI.current.gust_kph + " Kph";
+      displayCurrentConditionsIds[4].innerHTML =
+        "Humidity: " + weatherAPI.current.humidity;
+      displayCurrentConditionsIds[5].innerHTML =
+        "Precipitation: " + weatherAPI.current.precip_in + " inches";
+      displayCurrentConditionsIds[6].innerHTML =
+        "Precipitation: " + weatherAPI.current.precip_mm + " millimeters";
+      displayCurrentConditionsIds[7].innerHTML =
+        "Pressure: " + weatherAPI.current.pressure_in + " in";
+      displayCurrentConditionsIds[8].innerHTML =
+        "Pressure: " + weatherAPI.current.pressure_mb + " millibars";
+      displayCurrentConditionsIds[9].innerHTML = "UV: " + weatherAPI.current.uv;
+      displayCurrentConditionsIds[10].innerHTML =
+        "Visibility: " + weatherAPI.current.vis_km + " kilometers";
+      displayCurrentConditionsIds[11].innerHTML =
+        "Visibility: " + weatherAPI.current.vis_miles + " miles";
+      displayCurrentConditionsIds[12].innerHTML =
+        "Wind: " + weatherAPI.current.wind_degree + "°";
+      displayCurrentConditionsIds[13].innerHTML =
+        "Wind: " + weatherAPI.current.wind_kph + " kph";
+      displayCurrentConditionsIds[14].innerHTML =
+        "Wind: " + weatherAPI.current.wind_mph + " mph";
+    } else {
+      throw new Error("Conditions Not Found");
+    }
+    if (weatherAPI.current.is_day === 1) {
+      displayTimeOfDay.innerHTML = "Daytime";
+    } else if (weatherAPI.current.is_day === 0) {
+      displayTimeOfDay.innerHTML = "Night";
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const getLocation = () => {
+  const weatherLocation = document.getElementById("weatherLocation");
+
+  weatherLocation.addEventListener("input", (e) => {
+    if (e.target.id === "weatherLocation") {
+      city = weatherLocation.value;
+      weatherApp()
+      weatherConditions()
+      console.log(weatherLocation.value);
+    }
+  });
+};
+
+const getLocationsWeather = getLocation();
+const getWeatherConditions = weatherConditions();
+const weatherForecast = weatherApp();
