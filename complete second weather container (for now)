@@ -1,0 +1,106 @@
+ <div id="secondRowContainer">
+          <div id="gustContainer">
+        <h2 class="gust" id="gustHeader">Gust</h2>
+        <div class="gust" id="displayGustKph"></div>
+        </div>
+        <div id="humidityContainer">
+        <h2 class="humidity" id="humidityHeader">Humidity</h2>
+        <div class="humidity" id="displayHumidity"></div>
+        </div>
+        <div id="precipitationContainer">
+        <h2 class="precipitation" id="precipitationHeader">Precipitation</h2>
+        <div class="precipitation" id="displayPrecipitationInches"></div>
+        <div class="precipitation" id="displayPrecipitationMillimeters"></div>
+        </div>
+      </div>
+
+#secondRowContainer {
+  display: grid;
+  grid-template-columns: 300px 300px 300px;
+  grid-template-rows: 300px 300px 300px;
+}
+
+#gustContainer {
+  display: grid;
+  grid-template-columns: 300px 118px 300px;
+  grid-template-rows: 200px 300px 300px;
+}
+
+.gust {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+}
+
+#gustHeader {
+  grid-row: 2;
+  grid-column:3;
+}
+
+#displayGustKph{
+    grid-row:2;
+    grid-column:3;
+    margin-top:8vh;
+    margin-left:0.3vh;
+}
+
+#humidityContainer{
+    display:grid;
+    grid-template-columns: 410px 300px 300px;
+    grid-template-rows: 200px 300px 300px;
+}
+
+.humidity{
+    font-family: "Roboto", sans-serif;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#humidityHeader{
+    grid-row:2;
+    grid-column:2;
+}
+
+#displayHumidity{
+    grid-row:2/3;
+    grid-column:2;
+    margin-top:9vh;
+}
+
+#precipitationContainer{
+    display:grid;
+    grid-template-columns: 120px 240px 300px;
+    grid-template-rows: 200px 300px 300px;
+}
+
+.precipitation{
+    display:flex;
+    font-family: "Roboto", sans-serif;
+    justify-content:center;
+    align-items: center;
+    text-align: center;
+}
+
+#precipitationHeader{
+    grid-row:2;
+    grid-column:3;
+}
+
+#displayPrecipitationInches{
+    grid-row:2;
+    grid-column:3;
+    margin-right:5vh;
+    margin-top:8.7vh;
+}
+
+#displayPrecipitationMillimeters{
+    grid-row:2;
+    grid-column:3;
+    margin-top:8.7vh;
+    margin-left:7vh;
+}
