@@ -1,0 +1,117 @@
+<div id="thirdRowContainer">
+        <div id="pressureContainer">
+          <h2 class="pressure" id="pressureHeader">Pressure</h2>
+          <div class="pressure" id="displayPressureInches"></div>
+          <div class="pressure" id="displayPressureMillibars"></div>
+        </div>
+        <div id="uvContainer">
+          <h2 class="uv" id="uvHeader">UV</h2>
+          <div class="uv" id="displayUV"></div>
+        </div>
+        <div id="visibilityContainer">
+          <h2 class="visibility" id="visibilityHeader">Visibility</h2>
+          <div class="visibility" id="displayVisibilityKilometers"></div>
+          <div class="visibility" id="displayVisibilityMiles"></div>
+        </div>
+        
+#thirdRowContainer {
+  display: grid;
+  grid-template-columns: 300px 300px 300px;
+  grid-template-rows: 300px 300px 300px;
+}
+
+#pressureContainer {
+  display: grid;
+  grid-template-columns: 300px 300px 300px;
+  grid-template-rows: 185px 300px 300px;
+}
+
+.pressure {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+}
+
+#pressureHeader {
+  grid-row: 3;
+  grid-column: 1;
+  margin-left: 3vh;
+}
+
+#displayPressureInches {
+  grid-row: 3;
+  grid-column: 1;
+  margin-top: 8vh;
+  margin-right: 1vh;
+}
+
+#displayPressureMillibars {
+  grid-row: 3;
+  grid-column: 1;
+  margin-top: 8vh;
+  margin-left: 8vh;
+}
+
+#uvContainer {
+  display: grid;
+  grid-template-columns: 20px 300px 300px;
+  grid-template-rows: 185px 430px 00px;
+}
+
+.uv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+}
+
+#uvHeader {
+  grid-row: 3;
+  grid-column: 2;
+}
+
+#displayUV {
+  grid-row: 3;
+  grid-column: 2;
+  margin-top: 5.3vh;
+  margin-left: 0.4vh;
+}
+
+#visibilityContainer {
+  display: grid;
+  grid-template-columns: 220px 300px 300px;
+  grid-template-rows: 185px 300px 300px;
+}
+
+.visibility {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+}
+
+#visibilityHeader {
+  grid-row: 3;
+  grid-column: 1;
+}
+
+#displayVisibilityKilometers {
+  grid-row: 3;
+  grid-column: 1;
+  margin-top: 7vh;
+  margin-right: 1.5vh;
+}
+
+#displayVisibilityMiles {
+  grid-row: 3;
+  grid-column: 1;
+  margin-top: 7vh;
+  margin-left: 7vh;
+}
