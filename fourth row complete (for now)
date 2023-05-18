@@ -1,0 +1,84 @@
+<div id="fourthRowContainer">
+          <div id="windContainer">
+            <h2 class="wind" id="windHeader">Wind</h2>
+            <div class="wind" id="displayWindDegrees"></div>
+            <div class="wind" id="displayWindKph"></div>
+            <div class="wind" id="displayWindMph"></div>
+            <div id="windDirectionContainer">
+            <h2 class="windDirection" id="windDirectionHeader">Wind Direction</h2>
+            <div class="windDirection" id="displayWindDirection"></div>
+            </div>
+            
+ #fourthRowContainer {
+  display: grid;
+  grid-template-columns: 300px 300px 300px;
+}
+
+#windContainer {
+  display: grid;
+  grid-template-columns: 650px 300px 300px;
+  grid-template-rows: 350px 300px 300px;
+}
+
+.wind {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+}
+
+#windHeader{
+    grid-row:2;
+    grid-column:1;
+}
+
+#displayWindDegrees{
+    grid-column:1;
+    grid-row:2;
+    margin-top:6.5vh;
+    margin-right:0.5vh;
+}
+
+#displayWindKph{
+    grid-column:1;
+    grid-row:2;
+    margin-top:6.5vh;
+    margin-left:5.5vh;
+}
+
+#displayWindMph{
+    grid-column:1;
+    grid-row:2;
+    margin-top:11vh;
+    margin-left:2.5vh;
+}
+
+#windDirectionContainer{
+    display:grid;
+    grid-template-columns: 300px 140px 300px;
+    grid-template-rows: 350px 300px 300px;
+}
+
+.windDirection{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+}
+
+#windDirectionHeader{
+    grid-row:2;
+    grid-column:3;
+}
+
+#displayWindDirection{
+    grid-row:2;
+    grid-column:3;
+    font-size:1.5em;
+    margin-top:9vh;
+}
+
